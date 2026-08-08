@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Royal Quest</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+    <header class="top-bar">
+
+        <div class="logo">
+            <span class="crown">♛</span>
+
+            <div>
+                <small>THE</small>
+                <h2>ROYAL QUEST</h2>
+            </div>
+        </div>
+
+        <div class="edition">
+            FAMILY EDITION
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <!-- START SCREEN -->
+
+        <section id="start-screen" class="screen">
+
+            <div class="hero-card">
+
+                <div class="royal-symbol">
+                    ♛
+                </div>
+
+                <p class="eyebrow">
+                    WELCOME TO THE KINGDOM
+                </p>
+
+                <h1>
+                    ROYAL<br>
+                    <span>QUEST</span>
+                </h1>
+
+                <p class="description">
+                    A beautiful family board adventure where
+                    strategy, luck and points decide the winner.
+                </p>
+
+                <button id="start-button">
+                    START GAME
+                    <span>✦</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- PLAYER SETUP -->
+
+        <section id="setup-screen" class="screen hidden">
+
+            <div class="setup-card">
+
+                <p class="eyebrow">
+                    CREATE YOUR TABLE
+                </p>
+
+                <h2>Choose Your Players</h2>
+
+                <p class="description">
+                    Enter between 2 and 4 player names.
+                </p>
+
+                <div class="player-inputs">
+
+                    <input
+                        id="player1"
+                        type="text"
+                        placeholder="Player 1"
+                        maxlength="15"
+                    >
+
+                    <input
+                        id="player2"
+                        type="text"
+                        placeholder="Player 2"
+                        maxlength="15"
+                    >
+
+                    <input
+                        id="player3"
+                        type="text"
+                        placeholder="Player 3 (optional)"
+                        maxlength="15"
+                    >
+
+                    <input
+                        id="player4"
+                        type="text"
+                        placeholder="Player 4 (optional)"
+                        maxlength="15"
+                    >
+
+                </div>
+
+                <button id="begin-button">
+                    ENTER THE KINGDOM
+                    <span>→</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- GAME SCREEN -->
+
+        <section id="game-screen" class="screen hidden">
+
+            <div class="game-header">
+
+                <div>
+                    <p class="eyebrow">
+                        CURRENT TURN
+                    </p>
+
+                    <h2 id="current-player">
+                        Player 1
+                    </h2>
+                </div>
+
+                <div class="dice-area">
+
+                    <div id="dice">
+                        ?
+                    </div>
+
+                    <button id="roll-button">
+                        ROLL DICE
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="board-container">
+
+                <canvas
+                    id="game-board"
+                    width="900"
+                    height="900">
+                </canvas>
+
+            </div>
+
+
+            <div id="scoreboard" class="scoreboard">
+            </div>
+
+        </section>
+
+
+        <!-- WINNER SCREEN -->
+
+        <section id="winner-screen" class="screen hidden">
+
+            <div class="winner-card">
+
+                <div class="winner-crown">
+                    👑
+                </div>
+
+                <p class="eyebrow">
+                    THE KINGDOM HAS A CHAMPION
+                </p>
+
+                <h1 id="winner-name">
+                    Winner
+                </h1>
+
+                <p id="winner-score">
+                    0 Points
+                </p>
+
+                <button id="restart-button">
+                    PLAY AGAIN
+                    <span>↻</span>
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        ROYAL QUEST • FAMILY EDITION
+    </footer>
+
+
+    <script src="game.js"></script>
+
+</body>
+</html>
