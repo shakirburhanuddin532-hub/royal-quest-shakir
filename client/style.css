@@ -1,0 +1,1161 @@
+/* =========================================================
+   ROYAL QUEST
+   Luxury Family Board Game
+   STYLE SHEET
+   ========================================================= */
+
+
+/* ---------- RESET ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ---------- ROOT COLORS ---------- */
+
+:root {
+    --background: #07070b;
+    --background-two: #111019;
+
+    --gold: #e8bd63;
+    --gold-light: #fff0bd;
+    --gold-dark: #9a681d;
+
+    --white: #ffffff;
+    --text: #f5f0e5;
+    --muted: #aaa5a0;
+
+    --glass: rgba(25, 23, 32, 0.78);
+
+    --border: rgba(255, 255, 255, 0.09);
+}
+
+
+/* ---------- BODY ---------- */
+
+body {
+    min-height: 100vh;
+
+    color: var(--text);
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(218, 170, 70, 0.18),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 85% 75%,
+            rgba(116, 75, 170, 0.18),
+            transparent 32%
+        ),
+
+        linear-gradient(
+            135deg,
+            #050507,
+            #111019,
+            #07070b
+        );
+
+    overflow-x: hidden;
+}
+
+
+/* ---------- BACKGROUND LIGHTS ---------- */
+
+.background-glow {
+    position: fixed;
+
+    width: 320px;
+    height: 320px;
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    pointer-events: none;
+
+    z-index: -1;
+
+    animation: floatingGlow 8s ease-in-out infinite alternate;
+}
+
+
+.glow-one {
+    left: -100px;
+    top: 20%;
+
+    background: rgba(218, 170, 70, 0.14);
+}
+
+
+.glow-two {
+    right: -100px;
+    bottom: 10%;
+
+    background: rgba(120, 75, 190, 0.12);
+
+    animation-delay: -3s;
+}
+
+
+/* ---------- GLOW ANIMATION ---------- */
+
+@keyframes floatingGlow {
+
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(35px, -25px) scale(1.12);
+    }
+}
+
+
+/* ---------- TOP BAR ---------- */
+
+.top-bar {
+
+    height: 78px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 5vw;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.07);
+
+    background:
+        rgba(8, 8, 12, 0.55);
+
+    backdrop-filter: blur(20px);
+
+    position: relative;
+
+    z-index: 10;
+}
+
+
+/* ---------- LOGO ---------- */
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.crown {
+
+    font-size: 38px;
+
+    color: var(--gold);
+
+    text-shadow:
+        0 0 15px rgba(232, 189, 99, 0.35),
+        0 0 35px rgba(232, 189, 99, 0.15);
+
+    animation: crownGlow 3s ease-in-out infinite alternate;
+}
+
+
+@keyframes crownGlow {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-3px);
+    }
+}
+
+
+.logo small {
+
+    display: block;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    color: var(--muted);
+}
+
+
+.logo h2 {
+
+    font-family: Georgia, serif;
+
+    font-size: 21px;
+
+    letter-spacing: 2px;
+
+    color: var(--gold-light);
+}
+
+
+/* ---------- EDITION BADGE ---------- */
+
+.edition {
+
+    padding: 9px 15px;
+
+    border-radius: 50px;
+
+    border:
+        1px solid rgba(232, 189, 99, 0.35);
+
+    color: var(--gold-light);
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    background:
+        rgba(232, 189, 99, 0.04);
+}
+
+
+/* ---------- MAIN ---------- */
+
+main {
+
+    width: 100%;
+
+    min-height:
+        calc(100vh - 130px);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 50px 20px;
+}
+
+
+/* ---------- SCREEN ---------- */
+
+.screen {
+
+    width: 100%;
+
+    max-width: 1100px;
+
+    animation:
+        screenAppear 0.7s ease;
+}
+
+
+@keyframes screenAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* ---------- HIDDEN ---------- */
+
+.hidden {
+
+    display: none !important;
+}
+
+
+/* ---------- HERO CARD ---------- */
+
+.hero-card {
+
+    max-width: 760px;
+
+    margin: auto;
+
+    text-align: center;
+
+    padding: 65px 40px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(35, 32, 42, 0.88),
+            rgba(12, 11, 16, 0.82)
+        );
+
+    border:
+        1px solid var(--border);
+
+    box-shadow:
+        0 35px 100px rgba(0, 0, 0, 0.45),
+        inset 0 1px rgba(255, 255, 255, 0.06);
+
+    backdrop-filter: blur(25px);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* ---------- CARD LIGHT ---------- */
+
+.hero-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    left: 50%;
+    top: -150px;
+
+    transform: translateX(-50%);
+
+    background:
+        rgba(232, 189, 99, 0.15);
+
+    filter: blur(70px);
+}
+
+
+/* ---------- ROYAL SYMBOL ---------- */
+
+.royal-symbol {
+
+    width: 82px;
+    height: 82px;
+
+    margin: auto;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 50%;
+
+    border:
+        1px solid rgba(232, 189, 99, 0.35);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(232, 189, 99, 0.12),
+            transparent
+        );
+
+    color: var(--gold);
+
+    font-size: 45px;
+
+    box-shadow:
+        0 0 35px rgba(232, 189, 99, 0.12);
+}
+
+
+/* ---------- EYEBROW ---------- */
+
+.eyebrow {
+
+    margin-top: 25px;
+
+    color: var(--gold);
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 4px;
+}
+
+
+/* ---------- MAIN TITLE ---------- */
+
+.hero-card h1 {
+
+    margin-top: 15px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(58px, 9vw, 100px);
+
+    line-height: 0.86;
+
+    letter-spacing: 3px;
+
+    background:
+        linear-gradient(
+            100deg,
+            #fff8d9,
+            #d49b35,
+            #fff3bb
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+
+    text-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.25);
+}
+
+
+.hero-card h1 span {
+
+    letter-spacing: 8px;
+}
+
+
+/* ---------- DESCRIPTION ---------- */
+
+.description {
+
+    max-width: 560px;
+
+    margin:
+        28px auto 0;
+
+    color: var(--muted);
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* ---------- GOLD BUTTON ---------- */
+
+button {
+
+    font-family: inherit;
+}
+
+
+#start-button,
+#begin-button,
+#roll-button,
+#restart-button {
+
+    border: none;
+
+    cursor: pointer;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    color: #181208;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff0b8,
+            #e8bd63,
+            #a66f20
+        );
+
+    box-shadow:
+        0 12px 35px rgba(191, 132, 37, 0.22);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+
+#start-button {
+
+    margin-top: 35px;
+
+    padding:
+        17px 30px;
+
+    border-radius: 15px;
+
+    font-size: 13px;
+}
+
+
+#begin-button {
+
+    margin-top: 28px;
+
+    padding:
+        16px 25px;
+
+    border-radius: 14px;
+
+    font-size: 12px;
+}
+
+
+#roll-button {
+
+    padding:
+        14px 20px;
+
+    border-radius: 13px;
+
+    font-size: 11px;
+}
+
+
+#restart-button {
+
+    margin-top: 25px;
+
+    padding:
+        16px 25px;
+
+    border-radius: 14px;
+}
+
+
+#start-button span,
+#begin-button span,
+#roll-button span,
+#restart-button span {
+
+    margin-left: 8px;
+}
+
+
+#start-button:hover,
+#begin-button:hover,
+#roll-button:hover,
+#restart-button:hover {
+
+    transform:
+        translateY(-3px);
+
+    filter:
+        brightness(1.1);
+
+    box-shadow:
+        0 17px 45px rgba(191, 132, 37, 0.32);
+}
+
+
+#start-button:active,
+#begin-button:active,
+#roll-button:active,
+#restart-button:active {
+
+    transform:
+        translateY(0);
+}
+
+
+/* ---------- SETUP CARD ---------- */
+
+.setup-card {
+
+    max-width: 720px;
+
+    margin: auto;
+
+    padding: 50px 40px;
+
+    text-align: center;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(32, 29, 39, 0.9),
+            rgba(10, 9, 14, 0.85)
+        );
+
+    border:
+        1px solid var(--border);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.4);
+
+    backdrop-filter: blur(25px);
+}
+
+
+.setup-card h2 {
+
+    margin-top: 10px;
+
+    font-family: Georgia, serif;
+
+    font-size: 38px;
+
+    color: var(--gold-light);
+}
+
+
+/* ---------- PLAYER INPUTS ---------- */
+
+.player-inputs {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 12px;
+
+    margin-top: 30px;
+}
+
+
+.player-inputs input {
+
+    width: 100%;
+
+    padding: 16px;
+
+    border-radius: 13px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.09);
+
+    outline: none;
+
+    color: white;
+
+    background:
+        rgba(5, 5, 9, 0.7);
+
+    font-size: 14px;
+
+    transition: 0.2s;
+}
+
+
+.player-inputs input::placeholder {
+
+    color: #77737a;
+}
+
+
+.player-inputs input:focus {
+
+    border-color:
+        rgba(232, 189, 99, 0.65);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(232, 189, 99, 0.08);
+}
+
+
+/* ---------- GAME HEADER ---------- */
+
+.game-header {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr auto;
+
+    gap: 25px;
+
+    align-items: center;
+
+    padding: 22px 25px;
+
+    margin-bottom: 20px;
+
+    border-radius: 22px;
+
+    background:
+        rgba(22, 20, 28, 0.82);
+
+    border:
+        1px solid var(--border);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.35);
+
+    backdrop-filter: blur(20px);
+}
+
+
+.game-header h2 {
+
+    margin-top: 5px;
+
+    font-family: Georgia, serif;
+
+    color: var(--gold-light);
+
+    font-size: 30px;
+}
+
+
+/* ---------- DICE AREA ---------- */
+
+.dice-area {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+/* ---------- DICE ---------- */
+
+#dice {
+
+    width: 64px;
+    height: 64px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff,
+            #c9c3b7
+        );
+
+    color: #18140e;
+
+    font-size: 27px;
+
+    font-weight: 900;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.35);
+
+    transition:
+        transform 0.15s ease;
+}
+
+
+#dice.rolling {
+
+    animation:
+        diceRoll 0.45s linear infinite;
+}
+
+
+@keyframes diceRoll {
+
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    25% {
+        transform: rotate(90deg) scale(1.05);
+    }
+
+    50% {
+        transform: rotate(180deg) scale(0.95);
+    }
+
+    75% {
+        transform: rotate(270deg) scale(1.05);
+    }
+
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+
+/* ---------- BOARD ---------- */
+
+.board-container {
+
+    width: 100%;
+
+    max-width: 900px;
+
+    margin: auto;
+
+    padding: 12px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6e4b17,
+            #e0b65b,
+            #5c3c12
+        );
+
+    box-shadow:
+        0 35px 100px rgba(0, 0, 0, 0.55);
+}
+
+
+#game-board {
+
+    width: 100%;
+
+    display: block;
+
+    border-radius: 22px;
+
+    background:
+        #09080d;
+}
+
+
+/* ---------- SCOREBOARD ---------- */
+
+.scoreboard {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+    margin-top: 20px;
+}
+
+
+.score-card {
+
+    min-width: 130px;
+
+    padding: 14px 17px;
+
+    border-radius: 15px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    background:
+        rgba(25, 23, 31, 0.8);
+
+    text-align: center;
+}
+
+
+.score-card.active {
+
+    border-color:
+        rgba(232, 189, 99, 0.5);
+
+    box-shadow:
+        0 0 25px
+        rgba(232, 189, 99, 0.08);
+}
+
+
+.score-card strong {
+
+    display: block;
+
+    color: var(--gold-light);
+
+    font-size: 14px;
+}
+
+
+.score-card span {
+
+    display: block;
+
+    margin-top: 5px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+/* ---------- WINNER SCREEN ---------- */
+
+.winner-card {
+
+    max-width: 650px;
+
+    margin: auto;
+
+    text-align: center;
+
+    padding: 65px 35px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(38, 33, 42, 0.9),
+            rgba(12, 10, 16, 0.85)
+        );
+
+    border:
+        1px solid rgba(232, 189, 99, 0.22);
+
+    box-shadow:
+        0 30px 100px rgba(0, 0, 0, 0.5);
+}
+
+
+.winner-crown {
+
+    font-size: 70px;
+
+    animation:
+        winnerFloat 2s ease-in-out infinite alternate;
+}
+
+
+@keyframes winnerFloat {
+
+    from {
+        transform:
+            translateY(0)
+            rotate(-3deg);
+    }
+
+    to {
+        transform:
+            translateY(-10px)
+            rotate(3deg);
+    }
+}
+
+
+.winner-card h1 {
+
+    margin-top: 15px;
+
+    font-family: Georgia, serif;
+
+    font-size: 60px;
+
+    background:
+        linear-gradient(
+            100deg,
+            #fff2b8,
+            #d29a37,
+            #fff4c8
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+#winner-score {
+
+    margin-top: 12px;
+
+    color: var(--gold);
+
+    font-size: 20px;
+}
+
+
+/* ---------- FOOTER ---------- */
+
+footer {
+
+    text-align: center;
+
+    padding:
+        20px;
+
+    color:
+        rgba(255, 255, 255, 0.3);
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+}
+
+
+/* ---------- TABLET ---------- */
+
+@media (max-width: 800px) {
+
+    main {
+
+        padding:
+            30px 15px;
+    }
+
+
+    .game-header {
+
+        grid-template-columns:
+            1fr;
+
+        text-align: center;
+    }
+
+
+    .dice-area {
+
+        justify-content: center;
+    }
+
+
+    .player-inputs {
+
+        grid-template-columns:
+            1fr;
+    }
+
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 520px) {
+
+    .top-bar {
+
+        height: 68px;
+
+        padding:
+            0 18px;
+    }
+
+
+    .logo h2 {
+
+        font-size: 17px;
+    }
+
+
+    .crown {
+
+        font-size: 30px;
+    }
+
+
+    .edition {
+
+        font-size: 8px;
+
+        padding:
+            7px 9px;
+
+        letter-spacing: 1px;
+    }
+
+
+    .hero-card {
+
+        padding:
+            45px 20px;
+    }
+
+
+    .hero-card h1 {
+
+        font-size: 58px;
+    }
+
+
+    .hero-card h1 span {
+
+        letter-spacing: 4px;
+    }
+
+
+    .setup-card {
+
+        padding:
+            40px 20px;
+    }
+
+
+    .setup-card h2 {
+
+        font-size: 30px;
+    }
+
+
+    .game-header {
+
+        padding:
+            18px;
+    }
+
+
+    .game-header h2 {
+
+        font-size: 25px;
+    }
+
+
+    #dice {
+
+        width: 55px;
+        height: 55px;
+    }
+
+
+    #roll-button {
+
+        padding:
+            13px 15px;
+
+        font-size: 10px;
+    }
+
+
+    .winner-card {
+
+        padding:
+            50px 20px;
+    }
+
+
+    .winner-card h1 {
+
+        font-size: 45px;
+    }
+
+}
